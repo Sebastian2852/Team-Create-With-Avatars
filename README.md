@@ -3,7 +3,7 @@
 # Team Create With Avatars
 Turn Team Create into a more immersive experience by replacing the default "ball and arrow" indicators with full Roblox avatars! 
 
-[Download from Roblox](#)
+[Download from Roblox](https://create.roblox.com/store/asset/123901541910696/Team-create-with-avatars)
 
 </center>
 
@@ -13,7 +13,7 @@ Turn Team Create into a more immersive experience by replacing the default "ball
 -|-|
 
 ## Installing
-Head over to the [GitHub Releases](#) or to [Roblox Creator Store](#) and download from there.
+Head over to the [GitHub Releases](https://github.com/Sebastian2852/Team-Create-With-Avatars/releases/latest) or to [Roblox Creator Store](https://create.roblox.com/store/asset/123901541910696/Team-create-with-avatars) and download from there.
 
 ## Coming
 - Make it so you can customize whose avatar the plugin uses
