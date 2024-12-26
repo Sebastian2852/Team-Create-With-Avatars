@@ -39,12 +39,17 @@ function Avatar:SetTransparency(New :number)
         if Object:IsA("BasePart") then
             Object.Locked = true
             Object.CastShadow = false
+            Object.CollisionGroup = "StudioUnselectable"
+
+            if Object.Parent:IsA("Accessory") then
+                continue
+            end
+
             Object.CanCollide = false
             Object.CanQuery = false
             Object.CanTouch = false
             Object.Anchored = true
             Object.EnableFluidForces = false
-            Object.CollisionGroup = "StudioUnselectable"
         end
 
         if Object:IsA("Script") or Object:IsA("LocalScript") then
