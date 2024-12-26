@@ -17,12 +17,12 @@ Avatar.__index = Avatar
 
 function Avatar.new(UserID :number) :Avatar
     local self = setmetatable({}, Avatar)
+    PhysicsService:RegisterCollisionGroup("StudioUnselectable")
     self.Trove = Trove.new()
     self.UserID = UserID
     self.Model = nil
     self.PositionLoop = nil
     self:ConstructModel()
-    PhysicsService:RegisterCollisionGroup("StudioUnselectable")
     return self
 end
 
@@ -50,12 +50,12 @@ function Avatar:SetTransparency(New :number)
 end
 
 function Avatar:PositionModelLoop()
-    local Bind = RunService.PreRender:Connect(function()
+    self.PositionLoop = RunService.PreRender:Connect(function()
         if not self.Model then return end
         self.Model:PivotTo(workspace.CurrentCamera.CFrame)
     end)
 
-    self.Trove:Add(Bind)
+    self.Trove:Add(self.PositionLoop)
 end
 
 function Avatar:ConstructModel()
