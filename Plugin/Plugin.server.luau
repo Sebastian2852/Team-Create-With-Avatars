@@ -1,6 +1,6 @@
-local RunService = game:GetService("RunService")
 if not plugin then return end
-if not RunService:IsEdit() then return end
+local ShouldRun = require(script.Parent.Util.ShouldRun)
+if not ShouldRun then return end
 
 local StudioService = game:GetService("StudioService")
 
