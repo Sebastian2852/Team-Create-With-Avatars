@@ -1,6 +1,22 @@
 gitSourceBranch = "master"
 changelog = true
 
+[home]
+enabled = true
+includeReadme = false
+
+[[home.features]]
+title = "Features"
+description = "- Replace the default team-create indicator with your avatar"
+
+[[home.features]]
+title = "Installing"
+description = "You can install from github releases or from the roblox creator store. To find more info press 'Get Started' above!"
+
+[[home.features]]
+title = "Coming Soon"
+description = "- Using someelse's avatar instead of your own"
+
 [footer]
 style = "dark"
 copyright = "Copyright © 2024 sebastian2852. Built with Moonwave and Docusaurus"
