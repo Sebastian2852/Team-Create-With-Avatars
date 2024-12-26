@@ -46,6 +46,10 @@ function Avatar:SetTransparency(New :number)
             Object.EnableFluidForces = false
             Object.CollisionGroup = "StudioUnselectable"
         end
+
+        if Object:IsA("Script") or Object:IsA("LocalScript") then
+            Object:Destroy()
+        end
     end
 end
 
