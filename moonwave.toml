@@ -1,0 +1,6 @@
+gitSourceBranch = "master"
+changelog = true
+
+[footer]
+style = "dark"
+copyright = "Copyright © 2024 sebastian2852. Built with Moonwave and Docusaurus"
