@@ -1,2 +1,4 @@
 Build/
+Packages/
 *.bat
+*.lock

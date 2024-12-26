@@ -5,7 +5,10 @@
 
     "ServerStorage":{
       "TeamCreateWithAvatars":{
-        "$path":"Plugin"
+        "$path":"Plugin",
+        "Packages":{
+          "$path":"Packages"
+        }
       }
     }
   }

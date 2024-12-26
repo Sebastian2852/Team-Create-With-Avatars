@@ -1,0 +1,9 @@
+[package]
+name = "sebas/team-create-with-avatars"
+version = "1.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+private = true
+
+[dependencies]
+Trove = "sleitnick/trove@1.5.0"
