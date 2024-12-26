@@ -84,12 +84,12 @@ Avatar.__index = Avatar
 function Avatar.new(UserID :number, OwnerUserID :number) :Avatar
     local self = setmetatable({}, Avatar)
     self.Trove = Trove.new()
+    self.UserID = UserID
+    self.Owner = OwnerUserID
     self.Tag = `TCWA_{self.Owner}`
     self:Clean()
 
     PhysicsService:RegisterCollisionGroup("StudioUnselectable")
-    self.UserID = UserID
-    self.Owner = OwnerUserID
     self.Model = nil
     self.PositionLoop = nil
     self:ConstructModel()
