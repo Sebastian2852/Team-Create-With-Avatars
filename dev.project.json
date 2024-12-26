@@ -1,0 +1,12 @@
+{
+  "name": "Team Create With Avatars",
+  "tree": {
+    "$className": "DataModel",
+
+    "ServerStorage":{
+      "TeamCreateWithAvatars":{
+        "$path":"Plugin"
+      }
+    }
+  }
+}
