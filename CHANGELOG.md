@@ -3,6 +3,10 @@
 ## Unreleased
 none
 
+## Version 1.1.1
+### Bug Fix
+- Avatar models getting made and doing nothing fixed
+
 ## Version 1.1.0
 ### Changed
 - Now only works in team-create sessions
