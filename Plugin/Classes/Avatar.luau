@@ -2,7 +2,7 @@ local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StudioService = game:GetService("StudioService")
-local Trove = require(script.Parent.Packages.Trove)
+local Trove = require(script.Parent.Parent.Packages.Trove)
 
 export type Avatar = {
     UserID :number;
