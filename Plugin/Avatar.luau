@@ -27,13 +27,22 @@ end
 function Avatar:SetTransparency(New :number)
     assert(self.Model, "No model!")
 
-    for _, Object :BasePart in pairs(self.Model:GetDescendants()) do
+    for _, Object :Instance|BasePart|Decal in pairs(self.Model:GetDescendants()) do
+        Object.Archivable = false
+
         if Object:IsA("BasePart") or Object:IsA("Decal") then
             Object.LocalTransparencyModifier = New
         end
 
         if Object:IsA("BasePart") then
             Object.Locked = true
+            Object.CastShadow = false
+            Object.CanCollide = false
+            Object.CanQuery = false
+            Object.CanTouch = false
+            Object.Anchored = true
+            Object.EnableFluidForces = false
+            Object.CollisionGroup = "StudioUnselectable"
         end
     end
 end
@@ -65,6 +74,7 @@ function Avatar:ConstructModel()
 
     self.Model.Name = `TCWA_{Players:GetNameFromUserIdAsync(StudioService:GetUserId())}`
     self.Model.Parent = workspace.Terrain
+    self.Model.Archivable = false
     self.Trove:Add(self.Model)
 end
 
