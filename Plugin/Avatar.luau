@@ -39,7 +39,7 @@ function Avatar:SetTransparency(New :number)
 end
 
 function Avatar:PositionModelLoop()
-    local Bind = RunService.Heartbeat:Connect(function()
+    local Bind = RunService.PreRender:Connect(function()
         if not self.Model then return end
         self.Model:PivotTo(workspace.CurrentCamera.CFrame)
     end)
