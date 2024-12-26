@@ -1,3 +1,4 @@
+local CollectionService = game:GetService("CollectionService")
 local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -15,11 +16,15 @@ export type Avatar = {
 local Avatar = {}
 Avatar.__index = Avatar
 
-function Avatar.new(UserID :number) :Avatar
+function Avatar.new(UserID :number, OwnerUserID :number) :Avatar
     local self = setmetatable({}, Avatar)
-    PhysicsService:RegisterCollisionGroup("StudioUnselectable")
     self.Trove = Trove.new()
+    self.Tag = `TCWA_{self.Owner}`
+    self:Clean()
+
+    PhysicsService:RegisterCollisionGroup("StudioUnselectable")
     self.UserID = UserID
+    self.Owner = OwnerUserID
     self.Model = nil
     self.PositionLoop = nil
     self:ConstructModel()
@@ -71,7 +76,7 @@ function Avatar:ConstructModel()
     assert(self.UserID, "No UserID")
     assert(self.UserID ~= 0, "Invalid UserID")
 
-    self.Trove:Clean()
+    self:Clean()
 
     self.Model = Players:CreateHumanoidModelFromUserId(self.UserID)
     local Humanoid = self.Model:WaitForChild("Humanoid") :: Humanoid
@@ -86,11 +91,22 @@ function Avatar:ConstructModel()
     self.Model.Name = `TCWA_{Players:GetNameFromUserIdAsync(StudioService:GetUserId())}`
     self.Model.Parent = workspace.Terrain
     self.Model.Archivable = false
+    self.Model:AddTag(self.Tag)
     self.Trove:Add(self.Model)
 end
 
-function Avatar:Destroy()
+function Avatar:Clean()
     self.Trove:Clean()
+
+    local Avatars = CollectionService:GetTagged(self.Tag)
+    for _, v in pairs(Avatars) do
+        v:Destroy()
+    end
+end
+
+function Avatar:Destroy()
+    self:Clean()
+    self = nil
 end
 
 return Avatar
