@@ -1,3 +1,4 @@
+local PhysicsService = game:GetService("PhysicsService")
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local StudioService = game:GetService("StudioService")
@@ -21,6 +22,7 @@ function Avatar.new(UserID :number) :Avatar
     self.Model = nil
     self.PositionLoop = nil
     self:ConstructModel()
+    PhysicsService:RegisterCollisionGroup("StudioUnselectable")
     return self
 end
 
